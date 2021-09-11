@@ -8,3 +8,9 @@ Use the lightswitch button on the page 'lightSwitch.html' to turn the light on t
 The lightStatus (on=1, off=0) is stored in the file 'lightStatus.txt'.
 This value is read and returned as a JSON by 'lightStatusUpdate.php'.
 This value is updated by 'lightStatusUpdate.php' in combination with a query string variable.
+
+## examples\json
+
+Use the control button on the page 'controller.html' to move the car and set the name of the car on the page 'car.html'.
+The direction and name of the car are stored in the file 'data.json'.
+The 'data.json' is updated by 'dataUpdate.php' in combination with a query string variable.
