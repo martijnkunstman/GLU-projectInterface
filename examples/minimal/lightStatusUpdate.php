@@ -5,5 +5,6 @@
         fwrite($file, $_GET['lightStatus']);
         fclose($file);
     }
+    //return an empty JSON (to prevent a JavaScript fetch error)
     echo('{}');
 ?>

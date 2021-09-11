@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" style="width:100%; height:100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>light</title>
+</head>
+
+<body style="width:100%; height:100%; margin: 0;">
+    <div id="light"
+        style="display:flex; justify-content: center; align-items: center;width:100%; height:100%; background-color:#444444;">
+    </div>
+    <script>
+        //poll counter
+        let pollCounter = 0;
+        //read lightStatus
+        function lightStatusRead() {
+            fetch('lightStatusRead.php')
+                .then(response => response.json())
+                .then(data => {
+                    //show poll count in console
+                    console.log("pollCounter"+pollCounter);
+                    pollCounter++;
+                    //set the backgroundColor of the page based on the value of lightStatus in lightStatus.txt
+                    if (data.lightStatus == 1) {
+                        document.getElementById("light").style.backgroundColor = "#FFFFFF";
+                    } else {
+                        document.getElementById("light").style.backgroundColor = "#000000";
+                    }
+                    setTimeout(lightStatusRead, 500);
+                });
+        }
+        lightStatusRead();
+    </script>
+</body>
+
+</html>
