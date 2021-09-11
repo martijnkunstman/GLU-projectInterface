@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" style="width:100%; height:100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>controller</title>
+    <style>
+        input{
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body style="width:100%; height:100%; margin: 0;">
+    <div style="display:flex; justify-content: center; align-items: center;width:100%; height:100%; flex-direction:column;">
+        <input value="up" type="button" onclick="setDirection('up');">
+        <div style="display:flex; flex-direction:row;">
+            <input value="left" type="button" onclick="setDirection('left');">
+            <input value="right" type="button" onclick="setDirection('right');">
+        </div>
+        <input value="down" type="button" onclick="setDirection('down');">
+        <input value="" id="name" type="text" onkeyup="setName(this.value)">
+    </div>
+    <script>
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.getElementById("name").value = data.name;
+            });
+        //update the lightStatus value in the lightStatus.txt file using lightStatusUpdate.php and a queryString
+        function setDirection(direction) {
+            fetch('dataUpdate.php?direction=' + direction);
+        }
+        function setName(name) {
+            console.log(name);
+            fetch('dataUpdate.php?name=' + name);
+        }
+    </script>
+</body>
+
+</html>
