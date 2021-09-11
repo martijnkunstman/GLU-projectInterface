@@ -5,4 +5,5 @@
         fwrite($file, $_GET['lightStatus']);
         fclose($file);
     }
+    echo('{}');
 ?>
