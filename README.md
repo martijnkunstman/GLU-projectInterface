@@ -23,3 +23,10 @@ Assuming they both use the same online page.
 
 Online example can be found at:
 https://www.kunstman.nl/light/
+
+## shared canvas
+
+Try example hosted at Heroku:
+
+https://glu-interface.herokuapp.com/
+
